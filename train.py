@@ -63,7 +63,7 @@ def get_maps_distr(activations):
 			hist[-1] += (weights > q).sum()
 		else:
 			hist, bin_edges = np.histogram(weights, bins=bins)
-			hist, bin_edges = '{' + ', '.join(map(str, hist)) + '}', '{' + ', '.join(map(str, bin_edges)) + '}'
+		hist, bin_edges = '{' + ', '.join(map(str, hist)) + '}', '{' + ', '.join(map(str, bin_edges)) + '}'
 		maps.append(row + ", '{}', '{}')".format(bin_edges, hist))
 	return maps
 
