@@ -14,5 +14,13 @@ The idea is to be able to train CNN model, change parameters "on the way" and se
 * change weight decay;
 * change dropout (20% - 80%, step is 1%)
 
-### Steps to run this dashboard
-1. Install required packages from `requirements.txt`
+### Preparation
+Before running we have to create DB _dl_playground_ in _PostgreSQL_ with the schema "cnn_live_training" that contains three following tables:
+* activations
+* parameters
+* statistics
+
+### Steps to run the system
+1. Install required packages from `requirements.txt`;
+2. Run training process by `python train.py`;
+3. Run monitoring dashboard by `python board.py`;
