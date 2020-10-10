@@ -71,7 +71,7 @@ The column *weights* indicates the average value of weights in particular bin of
 ### Virtual environment setting up
 I will give short description for `Ubuntu` using virtual environment.
 1. Install python 3.8: `sudo apt install python3.8-minimal`
-2. Install virtual environment with python 3.8: `sudo apt-get install python3.8-venv
+2. Install virtual environment with python 3.8: `sudo apt-get install python3.8-venv`
 3. Create virtual environment: run from `cnn_live_training` folder: `python3.8 -m venv venv`
 4. Activate environment: `source venv/bin/activate`
 5. Install required packages in the virtual environment: `pip install -r requirements.txt`
