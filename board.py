@@ -381,14 +381,6 @@ def stop_callback(ts_stop):
     ]
 )
 def update_figure(n):
-    # get last updated date
-    q = """
-	    SELECT max(dt) as dt
-	    FROM {}.statistics
-	""".format(SCHEMA)
-    with get_con() as conn:
-        df = pd.read_sql(q, conn)
-
     # create layout
     fig = make_subplots(rows=1, cols=2, subplot_titles=('<b>Loss function (live)</b>', '<b>Accuracy (live)</b>'))
     fig.layout.annotations[0].update(x=0.25)
@@ -404,6 +396,14 @@ def update_figure(n):
         showlegend = False,
         margin = {'t': 50}
     )
+
+    # get last updated date
+    q = """
+    	    SELECT max(dt) as dt
+    	    FROM {}.statistics
+    	""".format(SCHEMA)
+    with get_con() as conn:
+        df = pd.read_sql(q, conn)
 
     # display output
     if df['dt'][0] is None: # if you want to hide previos inactive one: (datetime.now() - df['dt'][0]).seconds > 60
